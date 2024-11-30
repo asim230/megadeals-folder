@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDeals</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+      .premium-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      /* Logo Styling */
+      .logo a {
+        font-size: 1.8rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: color 0.3s ease-in-out;
+      }
+      
+      .logo a:hover {
+        color: #f0db4f;
+      }
+      
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .nav-item {
+        font-size: 1.1rem;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      
+      .nav-item:hover {
+        background: #f0db4f;
+        color: #1e3c72;
+        font-weight: bold;
+      }
+      
+      /* Shopping Cart Icon */
+      .cart-icon img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      
+      .cart-icon img:hover {
+        transform: scale(1.1);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .premium-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .nav-links {
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+      }
+
+      /* About Us Section */
+
+.about-us-modern {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f2f2f2 50%, #ffffff 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #ffb36b);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Additional Floating Icons */
+.about-us-modern::before,
+.about-us-modern::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 107, 107, 0.2);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.about-us-modern::before {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+}
+
+.about-us-modern::after {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  right: -80px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Ensures cards appear above background icons */
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 6px solid #ff6b6b;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.story-image {
+  background-image: url('images/ourstory.jpg');
+}
+
+.mission-image {
+  background-image: url('images/mission2.jpeg');
+}
+
+.behind-image {
+  background-image: url('images/behind.jpg');
+}
+
+.card-content {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 26px;
+  color: #ff6b6b;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Smooth Scroll Animation */
+.about-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.about-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.about-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.about-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .card-content h2 {
+    font-size: 20px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+  }
+}
+
+ /* Footer Section */
+
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo .logo-icon {
+    font-size: 2.5rem;
+    color: #f0db4f;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .footer-logo .highlights {
+    color: #f0db4f;
+  }
+  
+  .footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #f0db4f;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+}
+
+    </style>
+    </head>
+    <body>
+      <header class="premium-header">
+        <div class="logo">
+            <a href="#">Mega Deals</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="products.html" class="nav-item">Products</a>
+            <a href="aboutus.html" class="nav-item">About Us</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html">
+                <img src="images/shopping cart icon.png" alt="Shopping Cart">
+            </a>
+        </div>
+    </header>
+      <section class="about-us-modern">
+        <h1 class="section-title">About Us</h1>
+        <div class="about-grid">
+          <!-- Our Story -->
+          <div class="about-card">
+            <div class="card-image story-image"></div>
+            <div class="card-content">
+              <h2>Our Story</h2>
+              <p>
+                MegaDeals started with a passion for connecting customers with the best
+                deals on premium products. Our journey is one of innovation, dedication,
+                and creating memorable shopping experiences.
+              </p>
+            </div>
+          </div>
+      
+          <!-- Our Mission -->
+          <div class="about-card">
+            <div class="card-image mission-image"></div>
+            <div class="card-content">
+              <h2>Our Mission</h2>
+              <p>
+                We strive to revolutionize online shopping with unbeatable prices,
+                top-quality products, and exceptional service to ensure customer delight.
+              </p>
+            </div>
+          </div>
+      
+          <!-- Behind MegaDeals -->
+          <div class="about-card">
+            <div class="card-image behind-image"></div>
+            <div class="card-content">
+              <h2>Behind MegaDeals</h2>
+              <p>
+                A passionate team of creators, innovators, and strategists work
+                tirelessly to make MegaDeals a brand you trust and love.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Footer Section -->
+  
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <span class="logo-icon">🔥</span> Mega<span class="highlights">Deals</span>
+        </div>
+        <p class="footer-text">
+            Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+        </p>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+    </div>
+</footer>
+    </body>
+    </html>

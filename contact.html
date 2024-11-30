@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDeals</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+      
+      /* Header Styling */
+      .premium-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 35px;
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      /* Logo Styling */
+      .logo a {
+        font-size: 1.8rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: color 0.3s ease-in-out;
+      }
+      
+      .logo a:hover {
+        color: #f0db4f;
+      }
+      
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .nav-item {
+        font-size: 1.1rem;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      
+      .nav-item:hover {
+        background: #f0db4f;
+        color: #1e3c72;
+        font-weight: bold;
+      }
+      
+      /* Shopping Cart Icon */
+      .cart-icon img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      
+      .cart-icon img:hover {
+        transform: scale(1.1);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .premium-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .nav-links {
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+      }
+
+      .contact-us {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        padding: 30px 20px;
+      }
+      
+      .contact-container {
+        max-width: 1100px;
+        margin: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      
+      .contact-header {
+        text-align: center;
+        padding: 20px;
+        background-color: #e3d0c9;
+        color: #59302e;
+      }
+      
+      .contact-header h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      
+      .contact-header p {
+        font-size: 16px;
+      }
+      
+      .contact-details {
+        background: linear-gradient(to right, #f9f9f9, #ffffff);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      
+      .contact-details h2 {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .details-container {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      
+      .detail-box {
+        background: #ffffff;
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .detail-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      
+      .detail-box i {
+        font-size: 30px;
+        color: #845ef7;
+        margin-bottom: 10px;
+      }
+      
+      .detail-box h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .detail-box p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      .map iframe {
+        border-radius: 10px;
+      }
+      
+      /* Send Us a Message Section */
+.send-message {
+  padding: 50px 20px;
+  background-color: #f8f8f8; /* Soft background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-container {
+  background-color: #ffffff; /* White container */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 700px;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.message-title {
+  font-size: 28px;
+  color: #333333; /* Premium dark gray */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.message-description {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+/* Form Styling */
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form elements */
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #f9f9f9; /* Light input background */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #6c63ff; /* Accent color */
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3); /* Glowing effect */
+}
+
+textarea {
+  resize: none; /* Prevent resizing */
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: #6c63ff; /* Accent color */
+  color: #ffffff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #584fe0; /* Darker hover color */
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4); /* Hover shadow */
+}
+
+      
+      /* Follow Us Section */
+      
+.follow-us {
+  padding: 50px 20px;
+  background-color: #fefefe; /* Light background for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow-us-container {
+  background-color: #ffffff; /* White box background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 40px;
+  max-width: 800px;
+  text-align: center;
+  width: 100%;
+}
+
+.follow-us-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+.follow-us-description {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-link {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-logo .logo-icon {
+  font-size: 2.5rem;
+  color: #f0db4f;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.footer-logo .highlights {
+  color: #f0db4f;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #f0db4f;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #888;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+    </style>
+    </head>
+
+  <body>
+
+    <header class="premium-header">
+      <div class="logo">
+          <a href="#">Mega Deals</a>
+      </div>
+      <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="products.html" class="nav-item">Products</a>
+          <a href="aboutus.html" class="nav-item">About Us</a>
+          <a href="contact.html" class="nav-item">Contact Us</a>
+      </nav>
+      <div class="cart-icon">
+          <a href="cart.html">
+              <img src="images/shopping cart icon.png" alt="Shopping Cart">
+          </a>
+      </div>
+  </header>
+
+<section class="contact-us">
+  <div class="contact-container">
+    <div class="contact-header">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you! Reach out to us through the form below or find us at our location.</p>
+    </div>
+    <div class="contact-details">
+      <h2>Contact Details</h2>
+      <div class="details-container">
+        <!-- Email Section -->
+        <div class="detail-box">
+          <i class="fas fa-envelope"></i>
+          <h3>Email Us</h3>
+          <p>support@megadeals.com</p>
+        </div>
+        <!-- Location Section -->
+        <div class="detail-box">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Visit Us</h3>
+          <p>123 Mega Deals Street, California, US</p>
+        </div>
+        <!-- Phone Section -->
+        <div class="detail-box">
+          <i class="fas fa-phone"></i>
+          <h3>Call Us</h3>
+          <p>+1 (123) 456-7890</p>
+        </div>
+      </div>
+    </div>
+    
+      <div class="map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434508404!2d-122.41941538468178!3d37.774929279759714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c4d7ea9ab%3A0x7bd2500b93ef6df9!2s123%20Business%20Street%2C%20California!5e0!3m2!1sen!2sus!4v1681234567890!5m2!1sen!2sus"
+          width="100%" 
+          height="200" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <section class="send-message">
+      <div class="message-container">
+        <h2 class="message-title">Send Us a Message</h2>
+        <p class="message-description">Have any questions or feedback? Fill out the form below, and we’ll get back to you as soon as possible!</p>
+        <form class="message-form">
+          <div class="input-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="input-group">
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </section>
+    
+    
+    <section class="follow-us">
+      <div class="follow-us-container">
+        <h2 class="follow-us-title">Follow Us</h2>
+        <p class="follow-us-description">Stay connected with us on social media for the latest updates and exclusive deals!</p>
+        <div class="social-icons">
+          <a href="#" class="social-link" title="Follow us on Facebook">
+            <img src="images/facbook.png" alt="Facebook" class="social-image" />
+          </a>
+          <a href="#" class="social-link" title="Follow us on Twitter">
+            <img src="images/x1.jpg" alt="Twitter" class="social-image" />
+          </a>
+          <a href="https://www.instagram.com/asim_.xolo_/profilecard/?igsh=MzN6eDNmYzhrMnB2" class="social-link" title="Follow us on Instagram">
+            <img src="images/insta.jpeg" alt="Instagram" class="social-image" />
+          </a>
+          <a href="#" class="social-link" title="Follow us on LinkedIn">
+            <img src="images/link.webp" alt="LinkedIn" class="social-image" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- Footer Section -->
+  
+<footer class="footer">
+  <div class="footer-content">
+      <div class="footer-logo">
+          <span class="logo-icon">🔥</span> Mega<span class="highlights">Deals</span>
+      </div>
+      <p class="footer-text">
+          Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+      </p>
+      <div class="footer-links">
+          <a href="aboutus.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="privacy.html">Terms of Service</a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

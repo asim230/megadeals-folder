@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDeals</title>
+    <style>
+        /* General Styles */
+        
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Header Styling */
+.premium-header {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Spread elements evenly */
+  align-items: center; /* Vertically center items */
+  padding: 33px; /* Adjust padding for spacing */
+  height: 80px; /* Fix header height for consistent alignment */
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo a {
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo a:hover {
+  color: #f0db4f;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex; /* Use flexbox for nav links */
+  gap: 25px; /* Uniform spacing between links */
+  align-items: center; /* Vertically center-align links */
+  margin: 0; /* Remove any unnecessary margins */
+  padding: 0; /* Reset padding for consistency */
+}
+
+.nav-item {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px; /* Padding for clickable area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+  background: #f0db4f;
+  color: #1e3c72;
+  font-weight: bold;
+}
+
+/* Shopping Cart Icon */
+.cart-icon {
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Vertically center the cart icon */
+}
+
+.cart-icon img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cart-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premium-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto; /* Adjust height for smaller screens */
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+}
+
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 35px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+/* Start Shopping Button */
+.hero-button {
+  display: inline-block;
+  background: white;
+  color: #6a11cb;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, background-color 0.3s;
+  margin-top: 40px; /* Increased spacing from search bar */
+}
+
+.hero-button:hover {
+  transform: scale(1.1);
+  background-color: #eee;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+/* SLIDESHOW SECTION */
+.slideshow-section {
+    position: relative;
+    margin: 20px auto;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+  
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    user-select: none;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .fade {
+    animation: fadeEffect 1.5s;
+  }
+  
+  @keyframes fadeEffect {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+/* TRUSTWORTHY WORDS SECTION */
+.trust-section {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .trust-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .trust-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .trust-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .highlight {
+    flex: 1 1 300px;
+    max-width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .highlight h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .highlight p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+    /* PRODUCTS SECTION */
+.products-section {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .products-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .product:hover {
+    transform: scale(1.05);
+  }
+  
+  .product img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Ensures images stay uniform */
+    object-fit: contain; /* Makes images fit perfectly in the box */
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .product h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  a {
+      text-decoration: none;
+      color: black;
+  }
+
+      /* Footer Section */
+
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo .logo-icon {
+    font-size: 2.5rem;
+    color: #f0db4f;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .footer-logo .highlights {
+    color: #f0db4f;
+  }
+  
+  .footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #f0db4f;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+    </style>
+</head>
+<body>
+
+  <header class="premium-header">
+    <div class="logo">
+        <a href="#">Mega Deals</a>
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="products.html" class="nav-item">Products</a>
+        <a href="aboutus.html" class="nav-item">About Us</a>
+        <a href="contact.html" class="nav-item">Contact Us</a>
+    </nav>
+    <div class="cart-icon">
+        <a href="cart.html">
+            <img src="images/shopping cart icon.png" alt="Shopping Cart">
+        </a>
+    </div>
+</header>
+
+<!-- SLIDESHOW SECTION -->
+<section id="slideshow" class="slideshow-section">
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <img src="images/megasale images.avif" alt="Slide 1">
+      </div>
+      <div class="slide fade">
+        <img src="images/dress.jpg" alt="Slide 2">
+      </div>
+      <div class="slide fade">
+        <img src="images/slideshow image5.jpg" alt="Slide 3">
+      </div>
+      <div class="slide fade">
+        <img src="images/laptop.png" alt="Slide 4">
+      </div>
+      <div class="slide fade">
+        <img src="images/mobile.webp" alt="Slide 5">
+      </div>
+      <!-- Navigation arrows -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </section>
+  
+<!-- TRUSTWORTHY WORDS SECTION -->
+<section id="trust-section" class="trust-section">
+    <div class="trust-container">
+      <h2>Why Choose MegaDeals?</h2>
+      <p>At MegaDeals, we strive to bring you the best products at unbeatable prices. Our commitment to quality, transparency, and customer satisfaction makes us your trusted shopping partner.</p>
+      <div class="trust-highlights">
+        <div class="highlight">
+          <h3>Secure Shopping</h3>
+          <p>Your privacy and security are our top priorities. Shop with confidence knowing your data is protected.</p>
+        </div>
+        <div class="highlight">
+          <h3>Quality Assurance</h3>
+          <p>We handpick every product to ensure you receive only the best quality for your money.</p>
+        </div>
+        <div class="highlight">
+          <h3>Fast & Reliable Delivery</h3>
+          <p>Enjoy prompt and dependable delivery services for a seamless shopping experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- PRODUCTS SECTION -->
+<section id="products" class="products-section">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <a href="products.html#grocery"> <img src="images/tv main images.webp" alt="T.V" /> </a>
+        <h3>T.V</h3>
+      </div>
+      <div class="product">
+        <a href="products.html#computers"> <img src="images/laptop images2.webp" alt="Computer" /> </a>
+        <h3>Laptops</h3>
+      </div>
+      <div class="product">
+        <a href="products.html#mobiles"> <img src="images/mobile main images 2.jpg" alt="Mobile" /> </a>
+        <h3>Mobiles</h3>
+      </div>
+      <div class="product">
+        <a href="products.html#fashion"> <img src="images/fashion main image.jpeg" alt="Fashion" /> </a>
+        <h3>Fashion</h3>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer Section -->
+  
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <span class="logo-icon">🔥</span> Mega<span class="highlights">Deals</span>
+        </div>
+        <p class="footer-text">
+            Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+        </p>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+  
+    function showSlides() {
+      let slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => (slide.style.display = "none"));
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+  
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+  </script> 
+
+</body>
+</html>

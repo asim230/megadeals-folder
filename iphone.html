@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDeals</title>
+    <style>
+
+      /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Header Styling */
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo a {
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo a:hover {
+  color: #f0db4f;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+  background: #f0db4f;
+  color: #1e3c72;
+  font-weight: bold;
+}
+
+/* Shopping Cart Icon */
+.cart-icon img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cart-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premium-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .nav-links {
+      margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Product Box Design */
+.product-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image Section */
+.product-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* Product Details Section */
+.product-details {
+  max-width: 500px;
+  margin-left: 20px;
+}
+
+.product-details h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-details h3 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 22px;
+  color: #e63946;
+  margin-bottom: 20px;
+}
+
+.quantity-section {
+  margin-bottom: 20px;
+}
+
+.quantity-section label {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.quantity-section select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.product-buttons {
+  margin-bottom: 20px;
+}
+
+.product-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buy-now {
+  background-color: #e63946;
+  color: #fff;
+}
+
+.buy-now:hover {
+  background-color: #d62839;
+}
+
+.add-to-cart {
+  background-color: #555;
+  color: #fff;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+}
+
+/* Product Description */
+.product-description {
+  margin-top: 20px;
+}
+
+.product-description h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-description p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+
+
+/* Footer Section */
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-logo .logo-icon {
+  font-size: 2.5rem;
+  color: #f0db4f;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.footer-logo  .highlight {
+  color: #f0db4f;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #f0db4f;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #888;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+    a {
+      text-decoration: none;
+      color: white;
+  }
+
+    </style>
+    </head>
+
+<body>
+  <!-- Header Section -->
+  <header class="premium-header">
+    <div class="logo">
+        <a href="#">Mega Deals</a>
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="products.html" class="nav-item">Products</a>
+        <a href="aboutus.html" class="nav-item">About Us</a>
+        <a href="contact.html" class="nav-item">Contact Us</a>
+    </nav>
+    <div class="cart-icon">
+        <a href="cart.html">
+            <img src="images/shopping cart icon.png" alt="Shopping Cart">
+        </a>
+    </div>
+</header>
+
+<!-- Buying Section -->
+
+<div class="product-page">
+  <div class="product-box">
+    <!-- Product Image -->
+    <div class="product-image">
+      <img src="images/iphone.webp" alt="Iphone" />
+    </div>
+
+    <!-- Product Details -->
+    <div class="product-details">
+      <h1>IPHONE 15 Pro</h1>
+      <h3>PREMIUM MOBILES</h3>
+      <p class="price">$2.99</p>
+      <div class="quantity-section">
+        <label for="quantity">Quantity</label>
+        <select id="quantity">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      <div class="product-buttons">
+        <button class="buy-now">Buy Now</button>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-description">
+        <h4>About this Product</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+      <div class="footer-logo">
+          <span class="logo-icon">🔥</span> Mega<span class="highlight">Deals</span>
+      </div>
+      <p class="footer-text">
+          Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+      </p>
+      <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

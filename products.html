@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - MegaDeals</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+    /* Header styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Header Styling */
+    .premium-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding:  35px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    /* Logo Styling */
+    .logo a {
+      font-size: 1.8rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+    
+    .logo a:hover {
+      color: #f0db4f;
+    }
+    
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-item {
+      font-size: 1.1rem;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    .nav-item:hover {
+      background: #f0db4f;
+      color: #1e3c72;
+      font-weight: bold;
+    }
+    
+    /* Shopping Cart Icon */
+    .cart-icon img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .cart-icon img:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .premium-header {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+      .nav-links {
+          margin-top: 10px;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+    }
+
+    /* Product Styles */
+
+main {
+  padding: 20px;
+}
+
+.products-section {
+  margin: 40px 0;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.products-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Premium Product Box Styles */
+.product {
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 100%;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image maintains its aspect ratio without stretching */
+  object-position: center; /* This ensures the image is centered */
+  max-height: 300px; /* Limit the max height to ensure consistent layout */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0;
+  padding: 20px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-overlay p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.view-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+
+    /* Footer Section */
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-logo .logo-icon {
+  font-size: 2.5rem;
+  color: #f0db4f;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.footer-logo  .highlight {
+  color: #f0db4f;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #f0db4f;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #888;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+    a {
+      text-decoration: none;
+      color: black;
+  }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="premium-header">
+    <div class="logo">
+        <a href="index.html">Mega Deals</a>
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="products.html" class="nav-item">Products</a>
+        <a href="aboutus.html" class="nav-item">About Us</a>
+        <a href="" class="nav-item">Contact Us</a>
+    </nav>
+    <div class="cart-icon">
+        <a href="cart.html">
+            <img src="images/shopping cart icon.png" alt="Shopping Cart">
+        </a>
+    </div>
+</header>
+
+<!-- Product Section -->
+
+<main>
+  <!-- Computers Section -->
+  <section id="computers" class="products-section">
+    <h2>Laptops</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/dell images.webp" alt="Computer Product">
+        <div class="product-overlay">
+          <p>DELL</p>
+          <a href="dell.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/lenovo.webp" alt="Computer Product">
+        <div class="product-overlay">
+          <p>LENOVO</p>
+          <a href="lenovo.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/hp.webp" alt="Computer Product">
+        <div class="product-overlay">
+          <p>HP</p>
+          <a href="hp.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/acer.webp" alt="Computer Product">
+        <div class="product-overlay">
+          <p>ACER</p>
+          <a href="acer.html" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobiles Section -->
+  <section id="mobiles" class="products-section">
+    <h2>Mobiles</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/samsung.avif" alt="Mobile Product">
+        <div class="product-overlay">
+          <p>SAMSUNG</p>
+          <a href="samsung.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/iphone.webp" alt="Mobile Product">
+        <div class="product-overlay">
+          <p>IPHONE</p>
+          <a href="iphone.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/oneplus.png" alt="Mobile Product">
+        <div class="product-overlay">
+          <p>ONEPLUS</p>
+          <a href="oneplus.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/vivo.jpg" alt="Mobile Product">
+        <div class="product-overlay">
+          <p>VIVO</p>
+          <a href="vivo.html" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tv Section -->
+  <section id="grocery" class="products-section">
+    <h2>T.V</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/tv.webp" alt="Grocery Product">
+        <div class="product-overlay">
+          <p>XIAOMI</p>
+          <a href="milk.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/TV3.webp" alt="Grocery Product">
+        <div class="product-overlay">
+          <p>L.G</p>
+          <a href="rice.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/TV4.webp" alt="Grocery Product">
+        <div class="product-overlay">
+          <p>PANASOINC</p>
+          <a href="carrot.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/TV6.webp" alt="Grocery Product">
+        <div class="product-overlay">
+          <p>SONY</p>
+          <a href="noodles.html" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fashion Section -->
+  <section id="fashion" class="products-section">
+    <h2>Fashion</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/shirts2.jpg" alt="Fashion Product">
+        <div class="product-overlay">
+          <p>SHIRTS</p>
+          <a href="shirt.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/pant.webp" alt="Fashion Product">
+        <div class="product-overlay">
+          <p>PANTS</p>
+          <a href="cargo.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/fashion images 3.jpg" alt="Fashion Product">
+        <div class="product-overlay">
+          <p>HOODIES</p>
+          <a href="hoodie.html" class="view-button">View Details</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/fashion images 4.jpg" alt="Fashion Product">
+        <div class="product-overlay">
+          <p>SHOES</p>
+          <a href="shoe.html" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <span class="logo-icon">🔥</span> Mega<span class="highlight">Deals</span>
+        </div>
+        <p class="footer-text">
+            Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+        </p>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

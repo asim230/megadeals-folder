@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDeals</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      /* Header Styling */
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo a {
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo a:hover {
+  color: #f0db4f;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+  background: #f0db4f;
+  color: #1e3c72;
+  font-weight: bold;
+}
+
+/* Shopping Cart Icon */
+.cart-icon img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cart-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premium-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .nav-links {
+      margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+}
+      
+      .shopping-cart {
+        max-width: 1100px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .shopping-cart h1 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #5d3ebc;
+      }
+      
+      .cart-items {
+        border-top: 1px solid #ddd;
+      }
+      
+      .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .cart-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-right: 20px;
+        border-radius: 8px;
+      }
+      
+      .item-details {
+        flex: 1;
+      }
+      
+      .item-details h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      
+      .item-details p {
+        margin: 5px 0;
+        color: #888;
+        font-size: 14px;
+      }
+      
+      .item-price, .item-total {
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+        width: 100px;
+      }
+      
+      .item-quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+      }
+      
+      .item-quantity button {
+        width: 30px;
+        height: 30px;
+        background-color: #5d3ebc;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .item-quantity input {
+        width: 40px;
+        text-align: center;
+        font-size: 16px;
+        margin: 0 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      
+      .remove-item {
+        font-size: 20px;
+        color: #e63946;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .cart-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      
+      .continue-shopping {
+        font-size: 16px;
+        color: #5d3ebc;
+        text-decoration: none;
+      }
+      
+      .continue-shopping:hover {
+        text-decoration: underline;
+      }
+      
+      .subtotal {
+        font-size: 18px;
+        text-align: right;
+      }
+      
+      .subtotal h3 {
+        margin: 5px 0;
+        font-size: 24px;
+        color: #5d3ebc;
+      }
+      
+      .checkout {
+        background-color: #5d3ebc;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .checkout:hover {
+        background-color: #452c99;
+      }
+      
+      
+      /* Footer Section */
+
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo .logo-icon {
+    font-size: 2.5rem;
+    color: #f0db4f;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .footer-logo .highlights {
+    color: #f0db4f;
+  }
+  
+  .footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #f0db4f;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+}
+    </style>
+    </head>
+    <body>
+      <header class="premium-header">
+        <div class="logo">
+            <a href="#">Mega Deals</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="products.html" class="nav-item">Products</a>
+            <a href="aboutus.html" class="nav-item">About Us</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html">
+                <img src="images/shopping cart icon.png" alt="Shopping Cart">
+            </a>
+        </div>
+    </header>
+      <div class="shopping-cart">
+        <h1>SHOPPING CART</h1>
+        <div class="cart-items">
+          <!-- Product 1 -->
+          <div class="cart-item">
+            <img src="images/iphone.webp" alt="iPhone" />
+            <div class="item-details">
+              <h3>iPhone 14 Pro</h3>
+              <p>Smartphone - 256GB</p>
+            </div>
+            <div class="item-price">₹999.00</div>
+            <div class="item-quantity">
+              <button>-</button>
+              <input type="number" value="1" />
+              <button>+</button>
+            </div>
+            <div class="item-total">₹999.00</div>
+            <button class="remove-item">×</button>
+          </div>
+          <!-- Product 2 -->
+          <div class="cart-item">
+            <img src="images/pant.webp" alt="Cargo Pants" />
+            <div class="item-details">
+              <h3>Cargo Pants</h3>
+              <p>Unisex - Large Size</p>
+            </div>
+            <div class="item-price">₹49.99</div>
+            <div class="item-quantity">
+              <button>-</button>
+              <input type="number" value="2" />
+              <button>+</button>
+            </div>
+            <div class="item-total">₹99.98</div>
+            <button class="remove-item">×</button>
+          </div>
+          <!-- Product 3 -->
+          <div class="cart-item">
+            <img src="images/fashion images 4.jpg" alt="Basmati Rice" />
+            <div class="item-details">
+              <h3>White Sneakers</h3>
+              <p>Size - 9</p>
+            </div>
+            <div class="item-price">₹15.00</div>
+            <div class="item-quantity">
+              <button>-</button>
+              <input type="number" value="3" />
+              <button>+</button>
+            </div>
+            <div class="item-total">₹45.00</div>
+            <button class="remove-item">×</button>
+          </div>
+        </div>
+      
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <a href="products.html" class="continue-shopping">← Continue Shopping</a>
+          <div class="subtotal">
+            <p>Subtotal:</p>
+            <h3>₹1143.98</h3>
+          </div>
+          <button class="checkout"><a href="index.html" style="color: white;">Checkout</a></button>
+        </div>
+      </div>
+      
+      <!-- Footer Section -->
+  
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <span class="logo-icon">🔥</span> Mega<span class="highlights">Deals</span>
+        </div>
+        <p class="footer-text">
+            Your one-stop shop for unbeatable deals! Quality, affordability, and convenience, all in one place.
+        </p>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 MegaDeals. All Rights Reserved.</p>
+    </div>
+</footer>
+    </body>
+    </html>
